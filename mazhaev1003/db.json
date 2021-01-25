@@ -1,28 +1,28 @@
 {
   "products": [
     {
-      "id": 1,
       "name": "Milk",
       "quantity": 2,
-      "isBought": false
+      "isBought": false,
+      "id": 1
     },
     {
-      "id": 4,
-      "name": "Bread",
-      "quantity": 9,
-      "isBought": false
-    },
-    {
-      "id": 2,
       "name": "Butter",
       "quantity": 5,
-      "isBought": false
+      "isBought": false,
+      "id": 2
     },
     {
       "name": "Cucumber",
       "quantity": 4,
       "isBought": true,
       "id": 3
+    },
+    {
+      "name": "Bread",
+      "quantity": 9,
+      "isBought": true,
+      "id": 4
     }
   ]
 }

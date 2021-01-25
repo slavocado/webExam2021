@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from "../../shared/product.model";
 import {HttpProductService} from "../../shared/services/http-product.service";
 
@@ -20,23 +20,50 @@ export class MainComponent implements OnInit {
   async getData(){
     try{
       this.products = await this.httpProductService.getProducts();
-      this.products.sort(function(a,b){
-        return (a.isBought === b.isBought)? 0 : a.isBought? 1 : -1;
+
+      let topArr = [];
+      let bottomArr = [];
+
+      this.products.forEach(product => {
+        if (product.isBought === true) {
+          topArr.push(product);
+        } else {
+          bottomArr.push(product);
+        }
       })
+
+      topArr.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+      });
+
+      bottomArr.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+      });
+
+      this.products = topArr.concat(bottomArr);
+
     } catch (e) {
       console.error(e)
     }
   }
 
   async onAddProduct(product: Product) {
-    const id =
-      this.products.length > 0
-        ? this.products[this.products.length - 1].id + 1
-        : 0;
-    product.id = id;
+    let elWithMaxId = this.products.reduce((acc, curr) => acc.id > curr.id ? acc : curr);
+    product.id = elWithMaxId.id + 1;
     // this.workers.push(worker);
 
     try {
+      console.log('begin')
       await this.httpProductService.postProduct(product);
     } catch (e) {
       console.error(e);
