@@ -45,4 +45,14 @@ export class MainComponent implements OnInit {
     }
   }
 
+  async onEditProduct(editingProduct) {
+    try {
+      await this.httpProductService.putProduct(editingProduct);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      await this.getData();
+    }
+  }
+
 }

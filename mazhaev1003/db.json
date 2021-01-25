@@ -7,10 +7,10 @@
       "isBought": true
     },
     {
-      "id": 2,
       "name": "Bread",
       "quantity": 5,
-      "isBought": false
+      "isBought": false,
+      "id": 2
     },
     {
       "id": 2,

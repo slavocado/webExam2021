@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from "../../shared/product.model";
 
 @Component({
@@ -10,11 +10,18 @@ export class ProductsListComponent implements OnInit {
 
   @Input() products: Product[];
 
-  displayedColumns: string[] = ['id', 'name', 'quantity', 'isBought'];
+  @Output() editProduct =
+    new EventEmitter<Product>();
+
+  displayedColumns: string[] = ['id', 'name', 'quantity', 'isBought', 'action'];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onEditProduct(product: Product) {
+    this.editProduct.emit(product);
   }
 
 }
