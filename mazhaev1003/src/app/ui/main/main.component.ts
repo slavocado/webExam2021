@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
       let bottomArr = [];
 
       this.products.forEach(product => {
-        if (product.isBought === true) {
+        if (product.isBought === false) {
           topArr.push(product);
         } else {
           bottomArr.push(product);
