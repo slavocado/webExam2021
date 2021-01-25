@@ -29,7 +29,11 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef style="width: 150px"> Action </th>
     <td mat-cell *matCellDef="let element">
-      <app-edit-product [product]="element" (editProduct)="onEditProduct($event)"></app-edit-product>
+      <app-edit-product
+        [product]="element"
+        (editProduct)="onEditProduct($event)"
+        (deleteProduct)="onDeleteWorker($event)"
+      ></app-edit-product>
     </td>
   </ng-container>
 

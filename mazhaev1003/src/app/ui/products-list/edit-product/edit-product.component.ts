@@ -30,7 +30,9 @@ export class EditProductComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       // console.log(result);
-      if (result){
+      if (result === 'delete'){
+        this.onDeleteWorker(this.product.id);
+      } else if (result){
         result.id = this.product.id;
         this.edit(result);
       }

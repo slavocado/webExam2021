@@ -55,4 +55,16 @@ export class MainComponent implements OnInit {
     }
   }
 
+
+  async onDeleteWorker(id: number) {
+    try {
+      await this.httpProductService.deleteProduct(id);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      await this.getData();
+    }
+  }
+
+
 }

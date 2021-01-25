@@ -12,6 +12,8 @@ export class ProductsListComponent implements OnInit {
 
   @Output() editProduct =
     new EventEmitter<Product>();
+  @Output() deleteProduct =
+    new EventEmitter<number>();
 
   displayedColumns: string[] = ['id', 'name', 'quantity', 'isBought', 'action'];
 
@@ -22,6 +24,10 @@ export class ProductsListComponent implements OnInit {
 
   onEditProduct(product: Product) {
     this.editProduct.emit(product);
+  }
+
+  onDeleteWorker(id: number) {
+    this.deleteProduct.emit(id);
   }
 
 }
