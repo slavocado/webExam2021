@@ -4,24 +4,24 @@
       "id": 1,
       "name": "Milk",
       "quantity": 2,
-      "isBought": true
+      "isBought": false
     },
     {
+      "id": 4,
       "name": "Bread",
-      "quantity": 5,
-      "isBought": false,
-      "id": 2
+      "quantity": 9,
+      "isBought": false
     },
     {
       "id": 2,
       "name": "Butter",
       "quantity": 5,
-      "isBought": true
+      "isBought": false
     },
     {
       "name": "Cucumber",
       "quantity": 4,
-      "isBought": false,
+      "isBought": true,
       "id": 3
     }
   ]

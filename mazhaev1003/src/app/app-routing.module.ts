@@ -5,8 +5,8 @@ import {MainComponent} from "./ui/main/main.component";
 import {TextComponent} from "./ui/text/text.component";
 
 const routes: Routes = [
-  { path: '', component: MainComponent},
-  { path: 'text', component: TextComponent}
+  { path: '', component: TextComponent},
+  { path: 'products', component: MainComponent}
 ];
 
 @NgModule({
