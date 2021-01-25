@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Add product to list</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addProductForm" class="form-container">
+
+    <mat-form-field style="width: 100%" appearance="fill">
+      <mat-label>Product</mat-label>
+      <input matInput placeholder="Milk" formControlName="name" required>
+      <mat-error *ngIf="addProductForm.controls['name'].invalid">{{getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%" appearance="fill">
+      <mat-label>Quantity</mat-label>
+      <input matInput type="number" min="1" placeholder="3" formControlName="quantity" required>
+      <mat-error *ngIf="addProductForm.controls['quantity'].invalid">{{getErrorMessage('quantity')}}</mat-error>
+    </mat-form-field>
+
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Go back</button>
+  <button mat-button [disabled]="addProductForm.invalid" [mat-dialog-close]="addProductForm.value">Add</button>
+</div>

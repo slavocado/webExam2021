@@ -20,12 +20,28 @@ export class MainComponent implements OnInit {
   async getData(){
     try{
       this.products = await this.httpProductService.getProducts();
-      console.log(this.products)
       this.products.sort(function(a,b){
         return (a.isBought === b.isBought)? 0 : a.isBought? 1 : -1;
       })
     } catch (e) {
       console.error(e)
+    }
+  }
+
+  async onAddProduct(product: Product) {
+    const id =
+      this.products.length > 0
+        ? this.products[this.products.length - 1].id + 1
+        : 0;
+    product.id = id;
+    // this.workers.push(worker);
+
+    try {
+      await this.httpProductService.postProduct(product);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      await this.getData();
     }
   }
 
