@@ -8,6 +8,7 @@ import { ProductsListComponent } from './ui/products-list/products-list.componen
 
 import {AppRoutingModule} from "./app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from "@angular/common/http";
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatTableModule} from '@angular/material/table';
@@ -24,7 +25,8 @@ import {MatTableModule} from '@angular/material/table';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonToggleModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

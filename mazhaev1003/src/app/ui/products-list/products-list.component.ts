@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Product, ProductsDataBase} from "../../shared/worker.model";
+import {Component, Input, OnInit} from '@angular/core';
+import {Product} from "../../shared/product.model";
 
 @Component({
   selector: 'app-products-list',
@@ -8,7 +8,7 @@ import {Product, ProductsDataBase} from "../../shared/worker.model";
 })
 export class ProductsListComponent implements OnInit {
 
-  products: Product[] = ProductsDataBase;
+  @Input() products: Product[];
 
   displayedColumns: string[] = ['id', 'name', 'quantity', 'isBought'];
 
